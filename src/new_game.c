@@ -186,7 +186,6 @@ void NewGameInitData(void)
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
     DeactivateAllRoamers();
-    gSaveBlock1Ptr->registeredItem = ITEM_NONE;
     ClearBag();
     NewGameInitPCItems();
     ClearPokeblocks();
@@ -211,6 +210,8 @@ void NewGameInitData(void)
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
     ResetItemFlags();
     ResetDexNav();
+    gSaveBlock1Ptr->registeredItemSelect = 0;
+    gSaveBlock1Ptr->registeredItemL = 0;
 }
 
 static void ResetMiniGamesRecords(void)
