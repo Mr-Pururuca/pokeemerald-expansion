@@ -20,7 +20,7 @@
 
 // Stat settings
 #define B_BADGE_BOOST               GEN_3 // In Gen4+, Gym Badges no longer boost a Pokémon's stats.
-#define B_FRIENDSHIP_BOOST          FALSE      // In LGPE only, all stats except HP are boosted up to 10% based on Friendship. Unlike B_BADGE_BOOST, these boosts are accounted when calculating base stats.
+#define B_FRIENDSHIP_BOOST          FALSE // In LGPE only, all stats except HP are boosted up to 10% based on Friendship. Unlike B_BADGE_BOOST, these boosts are accounted when calculating base stats.
 #define B_MAX_LEVEL_EV_GAINS        GEN_3 // In Gen5+, Lv100 Pokémon can obtain Effort Values normally.
 #define B_RECALCULATE_STATS         GEN_3 // In Gen5+, the stats of the Pokémon who participate in battle are recalculated at the end of each battle.
 
@@ -102,7 +102,7 @@
 #define B_WISH_HP_SOURCE            GEN_3 // In Gen5+, Wish heals half of the user's max HP instead of the target's.
 #define B_RAMPAGE_CANCELLING        GEN_3 // In Gen5+, a failed Thrash, etc, will cancel except on its last turn.
 #define B_HEAL_BLOCKING             GEN_3 // In Gen5+, Heal Block prevents healing by Black Sludge, Leftovers, Shell Bell. Affected Pokémon will not consume held HP-restoring Berries or Berry Juice.
-                                               // Draining abilities will not heal but will prevent damage. In Gen6+, Heal Block prevents the use of most HP-draining moves.
+                                                // Draining abilities will not heal but will prevent damage. In Gen6+, Heal Block prevents the use of most HP-draining moves.
 #define B_ROOTED_GROUNDING          GEN_3 // In Gen4+, Ingrain causes the affected Pokémon to become grounded.
 #define B_METRONOME_MOVES           GEN_3 // This config will determine up to which generation will Metronome pull moves from.
 #define B_TELEPORT_BEHAVIOR         GEN_3 // In LGPE onwards (Gen8+ here), Teleport allows the user to swap out with another party member.
@@ -186,6 +186,7 @@
 #define B_SAFARI_BALL_MODIFIER      GEN_3 // In Gen8+, Safari Ball's catch multiplier was reduced from x1.5 to x1.
 #define B_FRIEND_BALL_MODIFIER      GEN_3 // In Gen8+, Friend Ball's friendship boost was reduced from 200 to 150.
 #define B_SERENE_GRACE_BOOST        GEN_3 // In Gen5+, Serene Grace boosts the added flinch chance of King's Rock and Razor Fang.
+#define B_IRON_BALL         GEN_3 // In Gen5+, Iron Ball ignores type modifiers for flying-type mons if it is the only source of grounding
 
 // Flag settings
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
