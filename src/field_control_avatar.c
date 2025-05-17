@@ -93,7 +93,7 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->tookStep = FALSE;
     input->pressedBButton = FALSE;
     input->pressedRButton = FALSE;
-    input->input_field_1_1 = FALSE;
+    input->pressedLButton = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
     input->dpadDirection = 0;
@@ -119,6 +119,8 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                 input->pressedBButton = TRUE;
             if (newKeys & R_BUTTON && !FlagGet(DN_FLAG_SEARCHING))
                 input->pressedRButton = TRUE;
+            if (newKeys & L_BUTTON)
+                input->pressedLButton = TRUE;
         }
 
         if (heldKeys & (DPAD_UP | DPAD_DOWN | DPAD_LEFT | DPAD_RIGHT))
@@ -228,8 +230,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->tookStep && TryFindHiddenPokemon())
         return TRUE;
-    
-    if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
+
+    if (input->pressedSelectButton && UseRegisteredKeyItemOnField(0))
+        return TRUE;
+    else if (input->pressedLButton && UseRegisteredKeyItemOnField(1))
         return TRUE;
     
     if (input->pressedRButton && TryStartDexNavSearch())
