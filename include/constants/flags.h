@@ -90,6 +90,7 @@
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
 
 //Flags para Debug
+#define FLAG_DEBUG_SHINE            0x4C
 #define FLAG_DEBUG_NO_ENCOUNTER     0x4D
 #define FLAG_DEBUG_NO_TRAINER_SEE   0x4E
 #define FLAG_DEBUG_NO_COLLISION     0x4F

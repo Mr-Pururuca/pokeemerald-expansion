@@ -8,7 +8,7 @@
 #define P_UPDATED_EGG_GROUPS        GEN_3  // Since Gen 8, certain Pokémon have gained new egg groups.
 #define P_UPDATED_FRIENDSHIP        GEN_3  // Since Gen 8, the base friendship of certain Pokémon was changed.
 #define P_UPDATED_EVS               GEN_3  // Some Pokémon have received EV updates after their introduction.
-#define P_UPDATED_EXP_YIELDS        GEN_5  // Since Gen 5, some Pokémon have received base Experience changes.
+#define P_UPDATED_EXP_YIELDS        GEN_LATEST  // Since Gen 5, some Pokémon have received base Experience changes.
 
 // Learnsets
 #define P_LVL_UP_LEARNSETS          GEN_3  // Choose which set of Level Up Learnsets to use.
@@ -67,7 +67,7 @@
 // Flag settings
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
-#define P_FLAG_FORCE_SHINY               0  // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
+#define P_FLAG_FORCE_SHINY               FLAG_DEBUG_SHINE  // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
 #define P_FLAG_FORCE_NO_SHINY            0  // If this flag is set, all wild and gift Pokémon will forced into NOT being Shiny.
 
 // Go here if you want to disable specific families of Pokémon.
