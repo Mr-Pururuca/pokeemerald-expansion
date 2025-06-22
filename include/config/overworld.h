@@ -24,10 +24,10 @@
 
 // PC settings
 #define OW_PC_PRESS_B               GEN_3 // In Gen4, pressing B when holding a Pokémon is equivalent to placing it. In Gen3, it gives the "You're holding a Pokémon!" error.
-#define OW_PC_JAPAN_WALDA_ICONS     TRUE       // In the US release of Emerald, the Cross, Bolt, and Plusle icons for Walda's wallpapers were left blank from the Japan release. Setting this to TRUE will restore them.
+#define OW_PC_JAPAN_WALDA_ICONS     TRUE  // In the US release of Emerald, the Cross, Bolt, and Plusle icons for Walda's wallpapers were left blank from the Japan release. Setting this to TRUE will restore them.
 #define OW_PC_HEAL                  GEN_3 // In Gen8+, Pokémon are not healed when deposited in the PC.
 #define OW_PC_MOVE_ORDER            GEN_3 // Starting in Gen4, the order of options in the PC menu change.
-#define OW_PC_RELEASE_ITEM          GEN_3 // In Gen8+, Pokémon that get released with a held item return it to the bag.
+#define OW_PC_RELEASE_ITEM          GEN_LATEST // In Gen8+, Pokémon that get released with a held item return it to the bag.
 
 #define OW_BERRY_MUTATIONS             FALSE      // If enabled, Berry plants can mutate based on berries planted next to them.
 #define OW_BERRY_MUTATION_CHANCE       25         // Determines the % chance of a mutation.
@@ -71,15 +71,15 @@
 #define OW_FOLLOWERS_ALLOWED_MET_LOC (0)
 
 // Out-of-battle Ability effects
-#define OW_SYNCHRONIZE_NATURE       GEN_3 // In Gen8+, if a Pokémon with Synchronize leads the party, wild Pokémon will always have their same Nature as opposed to the 50% chance in previous games. Gift Pokémon excluded.
+#define OW_SYNCHRONIZE_NATURE       GEN_LATEST // In Gen8+, if a Pokémon with Synchronize leads the party, wild Pokémon will always have their same Nature as opposed to the 50% chance in previous games. Gift Pokémon excluded.
                                                // In USUM (here GEN_7), if a Pokémon with Synchronize leads the party, gift Pokémon will always have their same Nature regardless of their Egg Group.
                                                // In ORAS (here GEN_6), if a Pokémon with Synchronize leads the party, gift Pokémon from the No Eggs Discovered Egg Group will always have their same Nature.
-#define OW_SUPER_LUCK               GEN_3 // In Gen8+, if a Pokémon with Super Luck is leading the party, the wild held item rate is increased to 60%/20%.
-#define OW_INFILTRATOR              GEN_3 // In Gen8+, if a Pokémon with Infiltrator is leading the party, the wild encounter rate is halved.
-#define OW_HARVEST                  GEN_3 // In Gen8+, if a Pokémon with Harvest is leading the party, there is a 50% chance to encounter a Grass-type Pokémon.
-#define OW_LIGHTNING_ROD            GEN_3 // In Gen8+, if a Pokémon with Lightning Rod is leading the party, there is a 50% chance to encounter an Electric-type Pokémon.
-#define OW_STORM_DRAIN              GEN_3 // In Gen8+, if a Pokémon with Storm Drain is leading the party, there is a 50% chance to encounter a Water-type Pokémon.
-#define OW_FLASH_FIRE               GEN_3 // In Gen8+, if a Pokémon with Flash Fire is leading the party, there is a 50% chance to encounter a Fire-type Pokémon.
+#define OW_SUPER_LUCK               GEN_LATEST // In Gen8+, if a Pokémon with Super Luck is leading the party, the wild held item rate is increased to 60%/20%.
+#define OW_INFILTRATOR              GEN_LATEST // In Gen8+, if a Pokémon with Infiltrator is leading the party, the wild encounter rate is halved.
+#define OW_HARVEST                  GEN_LATEST // In Gen8+, if a Pokémon with Harvest is leading the party, there is a 50% chance to encounter a Grass-type Pokémon.
+#define OW_LIGHTNING_ROD            GEN_LATEST // In Gen8+, if a Pokémon with Lightning Rod is leading the party, there is a 50% chance to encounter an Electric-type Pokémon.
+#define OW_STORM_DRAIN              GEN_LATEST // In Gen8+, if a Pokémon with Storm Drain is leading the party, there is a 50% chance to encounter a Water-type Pokémon.
+#define OW_FLASH_FIRE               GEN_LATEST // In Gen8+, if a Pokémon with Flash Fire is leading the party, there is a 50% chance to encounter a Fire-type Pokémon.
 
 // These defines only make a distinction for OW_ALTERED_TIME_RATIO
 #define GEN_8_PLA                       GEN_LATEST + 2
@@ -89,7 +89,7 @@
 #define OW_TIMES_OF_DAY                 GEN_LATEST   // Different generations have the times of day change at different times.
 #define OW_USE_FAKE_RTC                 FALSE        // When TRUE, seconds on the in-game clock will only advance once every 60 playTimeVBlanks (every 60 frames).
 #define OW_ALTERED_TIME_RATIO           GEN_LATEST   // In GEN_8_PLA, the time in game moves forward 60 seconds for every second in the RTC. In GEN_9, it is 20 seconds. TIME_DEBUG is 1:1, and meant for debugging purposes. This has no effect if OW_USE_FAKE_RTC is FALSE.
-#define OW_TIME_OF_DAY_ENCOUNTERS       TRUE        // If TRUE, will allow the user to define and use different encounter tables based on the time of day.
+#define OW_TIME_OF_DAY_ENCOUNTERS       TRUE         // If TRUE, will allow the user to define and use different encounter tables based on the time of day.
 #define OW_TIME_OF_DAY_DISABLE_FALLBACK FALSE        // If TRUE, if the encounter table for a specific map and time is empty, the area will have no encounters instead of falling back to the vanilla map and time.
 #define OW_TIME_OF_DAY_FALLBACK         TIME_MORNING // The time of day that encounter tables fall back to.
 
@@ -108,7 +108,7 @@
 #define OW_FLAG_NO_ENCOUNTER        FLAG_DEBUG_NO_ENCOUNTER     // If this flag is set, wild encounters will be disabled.
 #define OW_FLAG_NO_TRAINER_SEE      FLAG_DEBUG_NO_TRAINER_SEE   // If this flag is set, trainers will not battle the player unless they're talked to.
 #define OW_FLAG_NO_COLLISION        FLAG_DEBUG_NO_COLLISION     // If this flag is set, the player will be able to walk over tiles with collision. Mainly intended for debugging purposes.
-#define OW_FLAG_POKE_RIDER          0  // If this flag is set, the player will be able to use fly from the Pokenav Region Map and the Town Map key item by pressing 'R' on a city/location they are able to fly to.
+#define OW_FLAG_POKE_RIDER          TRUE  // If this flag is set, the player will be able to use fly from the Pokenav Region Map and the Town Map key item by pressing 'R' on a city/location they are able to fly to.
 
 #define BATTLE_PYRAMID_RANDOM_ENCOUNTERS    FALSE    // If set to TRUE, battle pyramid Pokemon will be generated randomly based on the round's challenge instead of hardcoded in src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h (or open_level_wild_mons.h)
 
@@ -134,7 +134,7 @@
                                                             // Setting this to TRUE will cause graphical errors with the Day Night System enabled.
 
 // Pokémon Center
-#define OW_IGNORE_EGGS_ON_HEAL           GEN_3         // In Gen 4+, the nurse in the Pokémon Center does not heal Eggs on healing machine.
+#define OW_IGNORE_EGGS_ON_HEAL           GEN_3              // In Gen 4+, the nurse in the Pokémon Center does not heal Eggs on healing machine.
 #define OW_UNION_DISABLE_CHECK           FALSE              // When TRUE, the nurse does not inform the player if there is a trainer waiting in the Union Room. This speeds up the loading of the Pokémon Center.
 #define OW_FLAG_MOVE_UNION_ROOM_CHECK    0                  // If this flag is set, the game will only check if players are in the Union Room while healing Pokémon, and not when players enter the Pokémon Center. This speeds up the loading of the Pokémon Center. This is ignored if OW_UNION_DISABLE_CHECK is TRUE.
 
