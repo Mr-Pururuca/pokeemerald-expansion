@@ -44,6 +44,12 @@ LilycoveCity_CoveLilyMotel_2F_EventScript_FatMan::
 	end
 
 LilycoveCity_CoveLilyMotel_2F_EventScript_Woman::
+	lock
+	faceplayer
+	switch VAR_STARTER_MON
+	case 0, Torchic_Starter_Trade
+	case 1, Mudkip_Starter_Trade
+	case 2, Treecko_Starter_Trade
 	msgbox LilycoveCity_CoveLilyMotel_2F_Text_SeaBreezeTicklesHeart, MSGBOX_NPC
 	end
 

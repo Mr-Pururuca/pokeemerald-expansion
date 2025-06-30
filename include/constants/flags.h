@@ -83,9 +83,11 @@
 #define FLAG_UNUSED_0x045    0x45 // Unused Flag
 #define FLAG_UNUSED_0x046    0x46 // Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
+
+// Flags troca de pokemon
+#define FLAG_TORCHIC_NPC_TRADE_COMPLETED    0x48
+#define FLAG_TREECKO_NPC_TRADE_COMPLETED    0x49
+#define FLAG_MUDKIP_NPC_TRADE_COMPLETED     0x4A
 
 //Flags Itens 
 #define FLAG_VS_SEEKER    0x4B // Unused Flag
@@ -529,8 +531,8 @@
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
-#define FLAG_MYSTERY_GIFT_1                  0x1E5
-#define FLAG_MYSTERY_GIFT_2                  0x1E6
+#define FLAG_MYSTERY_GIFT_JIRACHI            0x1E5
+#define FLAG_MYSTERY_GIFT_CELEBI             0x1E6
 #define FLAG_MYSTERY_GIFT_3                  0x1E7
 #define FLAG_MYSTERY_GIFT_4                  0x1E8
 #define FLAG_MYSTERY_GIFT_5                  0x1E9

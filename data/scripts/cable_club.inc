@@ -19,6 +19,11 @@ CableClub_EventScript_HideMysteryGiftMan::
 	return
 
 CableClub_EventScript_MysteryGiftMan::
+	goto_if_unset FLAG_RECEIVED_AURORA_TICKET, MysteryGiftScript_OldSeaMap
+	goto_if_unset FLAG_RECEIVED_MYSTIC_TICKET, MysteryGiftScript_AuroraTicket
+	goto_if_unset FLAG_RECEIVED_OLD_SEA_MAP, MysteryGiftScript_MysticTicket
+	goto_if_unset FLAG_MYSTERY_GIFT_CELEBI, MysteryGift_EventScript_Celebi
+	goto_if_unset FLAG_MYSTERY_GIFT_JIRACHI, MysteryGift_EventScript_Jirachi
 	specialvar VAR_RESULT, ShouldDistributeEonTicket
 	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_DistributeEonTicket
 	goto CableClub_EventScript_TryWonderCardScript

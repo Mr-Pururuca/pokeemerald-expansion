@@ -1047,6 +1047,54 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_SKITTY
+    },
+    [INGAME_TRADE_TORCHIC] =
+    {
+        .nickname = _("Fenix"),
+        .species = SPECIES_TORCHIC,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 1,
+        .otId = 87453,
+        .conditions = {30, 30, 30, 30, 30},
+        .personality = 0x9B,
+        .heldItem = ITEM_CHESTO_BERRY,
+        .mailNum = -1,
+        .otName = _("Yor"),
+        .otGender = FEMALE,
+        .sheen = 0,
+        .requestedSpecies = SPECIES_MEDICHAM
+    },
+    [INGAME_TRADE_TREECKO] =
+    {
+        .nickname = _("Clint"),
+        .species = SPECIES_TREECKO,
+        .ivs = {5, 4, 5, 4, 4, 4},
+        .abilityNum = 1,
+        .otId = 45663,
+        .conditions = {30, 30, 30, 30, 30},
+        .personality = 0x77,
+        .heldItem = ITEM_CHESTO_BERRY,
+        .mailNum = -1,
+        .otName = _("None"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_BRELOOM
+    },
+    [INGAME_TRADE_MUDKIP] =
+    {
+        .nickname = _("Jundir"),
+        .species = SPECIES_SEEDOT,
+        .ivs = {5, 4, 5, 4, 4, 4},
+        .abilityNum = 1,
+        .otId = 25879,
+        .conditions = {30, 5, 5, 5, 5},
+        .personality = 0x3C,
+        .heldItem = ITEM_CHESTO_BERRY,
+        .mailNum = -1,
+        .otName = _("Lindo"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_SHARPEDO
     }
 };
 

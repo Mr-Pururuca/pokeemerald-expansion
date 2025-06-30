@@ -9,6 +9,7 @@
 #include "constants/species.h"
 #include "constants/vars.h"
 #include "constants/wild_encounter.h"
+#include "constants/pokemon.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -24,3 +25,4 @@
 	.include "data/scripts/gift_mystic_ticket.inc"
 	.include "data/scripts/gift_altering_cave.inc"
 	.include "data/scripts/gift_old_sea_map.inc"
+	.include "data/scripts/gift_Jirachi_and_Celebi.inc"

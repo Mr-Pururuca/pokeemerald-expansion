@@ -131,8 +131,8 @@ bool32 IsMysteryGiftEnabled(void)
 void ClearMysteryGiftFlags(void)
 {
     FlagClear(FLAG_MYSTERY_GIFT_DONE);
-    FlagClear(FLAG_MYSTERY_GIFT_1);
-    FlagClear(FLAG_MYSTERY_GIFT_2);
+    FlagClear(FLAG_MYSTERY_GIFT_JIRACHI);
+    FlagClear(FLAG_MYSTERY_GIFT_CELEBI);
     FlagClear(FLAG_MYSTERY_GIFT_3);
     FlagClear(FLAG_MYSTERY_GIFT_4);
     FlagClear(FLAG_MYSTERY_GIFT_5);

@@ -373,6 +373,12 @@ MauvilleCity_GameCorner_EventScript_Woman2::
 	end
 
 MauvilleCity_GameCorner_EventScript_Gentleman::
+	lock
+	faceplayer
+	switch VAR_STARTER_MON
+	case 0, Mudkip_Starter_Trade
+	case 1, Treecko_Starter_Trade
+	case 2, Torchic_Starter_Trade
 	msgbox MauvilleCity_GameCorner_Text_RouletteOnlyLuck, MSGBOX_NPC
 	end
 
