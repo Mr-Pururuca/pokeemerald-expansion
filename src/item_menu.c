@@ -315,12 +315,11 @@ static const struct MenuAction sItemMenuActions[] = {
     [ACTION_CONFIRM_QUIZ_LADY] = {gMenuText_Confirm,            {ItemMenu_ConfirmQuizLady}},
     [ACTION_SELECT_BUTTON]     = {sMenuText_Select,             {ItemMenu_RegisterSelect}},
     [ACTION_L_BUTTON]          = {sMenuText_L,                  {ItemMenu_RegisterL}},
-    [ACTION_DUMMY]             = {gText_EmptyString2,           {NULL}}
     [ACTION_BY_NAME]           = {COMPOUND_STRING("Name"),      {ItemMenu_SortByName}},
     [ACTION_BY_TYPE]           = {COMPOUND_STRING("Type"),      {ItemMenu_SortByType}},
     [ACTION_BY_AMOUNT]         = {COMPOUND_STRING("Amount"),    {ItemMenu_SortByAmount}},
     [ACTION_BY_INDEX]          = {COMPOUND_STRING("Index"),     {ItemMenu_SortByIndex}},
-    [ACTION_DUMMY]             = {gText_EmptyString2, {NULL}}
+    [ACTION_DUMMY]             = {gText_EmptyString2,           {NULL}}
 };
 
 // these are all 2D arrays with a width of 2 but are represented as 1D arrays
@@ -2715,8 +2714,8 @@ static void ItemMenu_Register(u8 taskId)
     BagDestroyPocketScrollArrowPair();
     BagMenu_PrintCursor(data[0], 2);
     data[1] = listPosition;
-    data[2] = BagGetQuantityByPocketPosition(gBagPosition.pocket + 1, listPosition);
-    gSpecialVar_ItemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
+    data[2] = GetBagItemQuantity(gBagPosition.pocket, listPosition);
+    gSpecialVar_ItemId = GetBagItemId(gBagPosition.pocket, listPosition);
     sContextMenuFuncs[gBagPosition.location](taskId);
 }
 
@@ -2747,7 +2746,7 @@ static void ItemMenu_Deselect(u8 taskId)
     //u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
     int listPosition = ListMenu_ProcessInput(data[0]);
     
-    ResetRegisteredItem(BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition));
+    ResetRegisteredItem(GetBagItemId(gBagPosition.pocket, listPosition));
     gTasks[taskId].func = ItemMenu_FinishRegister;
 }
 
@@ -2757,7 +2756,7 @@ bool8 UseRegisteredKeyItemOnField(u8 button)
     u8 taskId;
     u16 registeredItem;
 
-    if (InUnionRoom() == TRUE || InBattlePyramid() || InBattlePike() || InMultiPartnerRoom() == TRUE)
+    if (InUnionRoom() == TRUE || CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InBattlePike() || InMultiPartnerRoom() == TRUE)
         return FALSE;
     HideMapNamePopUpWindow();
     ChangeBgY_ScreenOff(0, 0, BG_COORD_SET);

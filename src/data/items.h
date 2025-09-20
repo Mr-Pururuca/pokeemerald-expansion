@@ -12615,7 +12615,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_ACRO_BIKE] =
     {
-        .name = _("Bike"),
+        .name = ITEM_NAME("Bike"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A folding bicycle\n"
@@ -12683,7 +12683,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_DOWSING_MACHINE] =
     {
-        .name = _("Itemfinder"),
+        .name = ITEM_NAME("Itemfinder"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A device that\n"
