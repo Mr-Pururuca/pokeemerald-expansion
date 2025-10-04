@@ -110,7 +110,9 @@ Starter_Trade_Text_NotTheMon:
 
 Starter_Trade_Text_WontTradeMon:
 	.string "Oh, if you don't want to, that's okay.\n"
-	.string "But my POKéMON is cute, you know…$"
+	.string "But this POKéMON is pretty hard yo find,\n"
+	.string "you know…$"
+
 
 Starter_Trade_Text_TradedMon:
 	.string "I know I could go looking for one\n"

@@ -10,6 +10,6 @@ void ClearRematchMovementByTrainerId(void);
 u16 GetRematchTrainerIdVSSeeker(u16 trainerId);
 bool32 IsVsSeekerEnabled(void);
 
-#define VSSEEKER_RECHARGE_STEPS 100
+#define VSSEEKER_RECHARGE_STEPS 25 //redução dos steps necessarios para recarga
 
 #endif //GUARD_VS_SEEKER_H

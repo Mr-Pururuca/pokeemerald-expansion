@@ -235,14 +235,17 @@ FallarborTown_BattleTentLobby_EventScript_LittleBoy::
 FallarborTown_BattleTentLobby_EventScript_Lass::
 	msgbox FallarborTown_BattleTentLobby_Text_FallarborTentMyFavorite, MSGBOX_NPC
 	end
-
+@Adicionado evento de entrega do Vs. Seeker
 FallarborTown_BattleTentLobby_EventScript_Scott::
 	lock
 	faceplayer
 	goto_if_set FLAG_MET_SCOTT_IN_FALLARBOR, FallarborTown_BattleTentLobby_EventScript_ScottAlreadySpokenTo
 	msgbox FallarborTown_BattleTentLobby_Text_ScottLookingForSomeone, MSGBOX_DEFAULT
+	giveitem ITEM_VS_SEEKER
 	addvar VAR_SCOTT_STATE, 1
 	setflag FLAG_MET_SCOTT_IN_FALLARBOR
+	setflag FLAG_VS_SEEKER
+	msgbox FallarborTown_BattleTentLobby_Text_ExplainVsSeeker, MSGBOX_DEFAULT
 	release
 	end
 
@@ -337,7 +340,17 @@ FallarborTown_BattleTentLobby_Text_ScottLookingForSomeone:
 	.string "If there were a TRAINER like that,\n"
 	.string "I'd immediately…\p"
 	.string "Whoops! Never mind!\n"
-	.string "Keep working at it!$"
+	.string "Keep working on your battle abilities!\p"
+	.string "Thinkig about it You should have this!$"
+
+FallarborTown_BattleTentLobby_Text_ExplainVsSeeker:
+	.string "Use that device and you'll find\n"
+    .string "TRAINERS looking for a rematch.\p"
+	.string "Use them to hone your battle tatics\n"
+	.string "and strenghten your mons.\p"
+    .string "Take note to charge its battery to\n"
+    .string "use it.$"
+
 
 FallarborTown_BattleTentLobby_Text_ScottMakeChallenge:
 	.string "SCOTT: Instead of wasting your\n"
