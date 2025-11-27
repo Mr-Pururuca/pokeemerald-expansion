@@ -33,7 +33,8 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "Teach that hidden move FLASH to\n"
 	.string "a POKéMON and use it.\p"
 	.string "It lights up even the inky darkness\n"
-	.string "of caves.\p"
-	.string "But, to use it, you need the GYM BADGE\n"
-	.string "from DEWFORD's POKéMON GYM.$"
+	.string "of caves.$"
+@	.string "of caves.\p"
+@	.string "But, to use it, you need the GYM BADGE\n"
+@	.string "from DEWFORD's POKéMON GYM.$"
 
