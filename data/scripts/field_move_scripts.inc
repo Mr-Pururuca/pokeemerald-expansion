@@ -1,14 +1,16 @@
 @ Interact with cuttable tree
 EventScript_CutTree::
 	lockall
-	checkfieldmove FIELD_MOVE_CUT, TRUE
+@	checkfieldmove FIELD_MOVE_CUT, TRUE 
+	checkpartycanlearnfieldmove FIELD_MOVE_CUT
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_CUT
 	msgbox Text_WantToCut, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_CancelCut
-	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+@	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	msgbox Text_MonCutTree, MSGBOX_DEFAULT
 	closemessage
 EventScript_CutTreeCommon:
 	isfollowerfieldmoveuser VAR_0x8004
@@ -48,6 +50,7 @@ Text_WantToCut:
 	.string "CUT down!\p"
 	.string "Would you like to CUT it?$"
 
+
 Text_MonUsedFieldMove:
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
 
@@ -63,14 +66,16 @@ EventScript_UseRockSmash::
 @ Interact with smashable rock
 EventScript_RockSmash::
 	lockall
-	checkfieldmove FIELD_MOVE_ROCK_SMASH, TRUE
+@	checkfieldmove FIELD_MOVE_ROCK_SMASH, TRUE
+	checkpartycanlearnfieldmove FIELD_MOVE_ROCK_SMASH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
 	msgbox Text_WantToSmash, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
-	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+@	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	msgbox Text_MonBrokeRock, MSGBOX_DEFAULT
 	closemessage
 EventScript_RockSmashCommon:
 	@ check if follower should use the field move
@@ -215,7 +220,8 @@ EventScript_CancelSmash::
 
 Text_WantToSmash:
 	.string "This rock appears to be breakable.\n"
-	.string "Would you like to use ROCK SMASH?$"
+@	.string "Would you like to use ROCK SMASH?$"
+	.string "Would you like to use SMASH it?$"
 
 Text_CantSmash:
 	.string "It's a rugged rock, but a POKéMON\n"
@@ -224,7 +230,8 @@ Text_CantSmash:
 EventScript_StrengthBoulder::
 	lockall
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
-	checkfieldmove FIELD_MOVE_STRENGTH, TRUE
+@	checkfieldmove FIELD_MOVE_STRENGTH, TRUE
+	checkpartycanlearnfieldmove FIELD_MOVE_STRENGTH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantStrength
 	setfieldeffectargument 0, VAR_RESULT
 	msgbox Text_WantToStrength, MSGBOX_YESNO
@@ -244,7 +251,8 @@ EventScript_UseStrength::
 
 EventScript_ActivateStrength::
 	setflag FLAG_SYS_USE_STRENGTH
-	msgbox Text_MonUsedStrength, MSGBOX_DEFAULT
+@	msgbox Text_MonUsedStrength, MSGBOX_DEFAULT
+	msgbox Text_MonPushedBoulder, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -266,7 +274,8 @@ EventScript_CancelStrength::
 Text_WantToStrength:
 	.string "It's a big boulder, but a POKéMON\n"
 	.string "may be able to push it aside.\p"
-	.string "Would you like to use STRENGTH?$"
+@	.string "Would you like to use STRENGTH?$"
+	.string "Would you like to move it?$"
 
 Text_MonUsedStrength:
 	.string "{STR_VAR_1} used STRENGTH!\p"
@@ -474,3 +483,14 @@ Text_MonUsedRockClimb:
 Text_CantRockClimb:
     .string "The cliff is steep.\n"
     .string "A Pokémon may be able to climb it.$"
+
+@ Start qol_field_moves
+Text_MonCutTree:
+	.string "{STR_VAR_1} cut the tree!$"
+
+Text_MonBrokeRock:
+	.string "{STR_VAR_1} break the rock!$"
+
+Text_MonPushedBoulder:
+	.string "{STR_VAR_1} push the boulder!$"
+@ End qol_field_moves

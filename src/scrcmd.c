@@ -61,6 +61,7 @@
 #include "malloc.h"
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
+#include "qol_field_moves.h" // qol_field_moves
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3291,3 +3292,17 @@ bool8 ScrCmd_istmrelearneractive(struct ScriptContext *ctx)
 
     return FALSE;
 }
+
+// Start qol_field_moves
+bool8 ScrCmd_checkpartycanlearnfieldmove(struct ScriptContext *ctx)
+{
+    enum FieldMove fieldMove = ScriptReadByte(ctx);
+    u16 move = FieldMove_GetMoveId(fieldMove);
+
+    Script_RequestEffects(SCREFF_V1);
+    
+    PartyHasMonCanLearnFieldMove(move);
+
+    return FALSE;
+}
+// End qol_field_moves

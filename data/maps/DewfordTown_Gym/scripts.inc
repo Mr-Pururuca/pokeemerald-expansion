@@ -406,7 +406,8 @@ DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
 @	.string "And, you'll be able to use the HM move\n"
 @	.string "FLASH outside of battle.\p"
 	.string "If you'd like, use this TECHNICAL\n"
-	.string "MACHINE.$" @too.$"
+	.string "MACHINE.$"
+@	.string "MACHINE too.$"
 
 DewfordTown_Gym_Text_ExplainBulkUp:
 	.string "That TM08 contains BULK UP.\p"

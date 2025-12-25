@@ -1,5 +1,15 @@
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
+
+PetalburgWoods_OnTransition:
+	call_if_unset FLAG_CUT_TUTORIAL, PetalburgWoods_EventScript_MoveCutGirl
+	end
+
+PetalburgWoods_EventScript_MoveCutGirl::
+	setobjectxyperm LOCALID_PETALBURG_CUT_GIRL, 18, 10
+	setobjectmovementtype LOCALID_PETALBURG_CUT_GIRL, MOVEMENT_TYPE_FACE_RIGHT
+	return
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
@@ -248,6 +258,7 @@ PetalburgWoods_EventScript_Boy2::
 PetalburgWoods_EventScript_Girl::
 	lock
 	faceplayer
+	vgoto_if_unset FLAG_CUT_TUTORIAL, PetalburgWoods_EventScript_ClearTheWayTutorial
 	goto_if_set FLAG_RECEIVED_MIRACLE_SEED, PetalburgWoods_EventScript_ExplainMiracleSeed
 	msgbox PetalburgWoods_Text_TryUsingThisItem, MSGBOX_DEFAULT
 	giveitem ITEM_MIRACLE_SEED
@@ -313,8 +324,21 @@ PetalburgWoods_EventScript_RegisterJames2::
 PetalburgWoods_EventScript_JamesRematch::
 	trainerbattle_rematch TRAINER_JAMES_1, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
+	release
 	end
 
+PetalburgWoods_EventScript_ClearTheWayTutorial::
+	goto_if_set FLAG_TEMP_12, PetalburgWoods_EventScript_PetalburgWoods_EventScript_ClearedTheWay @Event flag for the tree
+	msgbox PetalburgWoods_Text_ClearTheWayTutorial, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgWoods_EventScript_PetalburgWoods_EventScript_ClearedTheWay::
+	setflag FLAG_CUT_TUTORIAL
+	msgbox PetalburgWoods_Text_ClearedTheWay, MSGBOX_DEFAULT
+	release
+	end
+	
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
 	.string "Not a one to be found…$"
@@ -471,3 +495,18 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Text_ClearTheWayTutorial:
+	.string "I was going for walk, but this dawn\n"
+	.string "tree, keeps blocking my way.\p"
+	.string "They say your POKéMON can help you get\n"
+	.string "around, maybe I should have brougth\l"
+	.string "mine.$"
+
+PetalburgWoods_Text_ClearedTheWay:
+	.string "Wow!!\p"
+	.string "You realy cut that tree, you should try\n"
+	.string "with rocks and boulders next.\p"
+	.string "Your POKéMON will definitely clear the\n"
+	.string "way.\p"
+	.string "You might need some training if they\n"
+	.string "are carring you though.$"
