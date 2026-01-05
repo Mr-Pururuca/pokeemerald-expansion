@@ -19,6 +19,26 @@ Route115_OnFrame:
 	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
 	.2byte 0
 
+Route115_Movement_Roxanne:
+	face_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	step_end
+
+Route115__Movement_Player:
+	walk_right
+	delay_16
+	face_left
+	delay_16
+	face_down
+	delay_16
+	step_end
+
 Route115_EventScript_Woman::
 	msgbox Route115_Text_NeverKnowWhenCavePokemonWillAppear, MSGBOX_NPC
 	end
@@ -129,6 +149,18 @@ Route115_EventScript_Marlene::
 	msgbox Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route115_EventScript_RockClimbTreiner::
+	lock
+	faceplayer
+	msgbox Route115_Text_TrainedFieldMovesTutorial, MSGBOX_AUTOCLOSE
+	setflag FLAG_TRAINED_ROCK_CLIMBING
+	applymovement LOCALID_PLAYER, Route115__Movement_Player
+	applymovement LOCALID_ROUTE_115_ROXANNE, Route115_Movement_Roxanne
+	waitmovement 0
+	removeobject LOCALID_ROUTE_115_ROXANNE
+	release
+	end
+
 Route115_Text_NeverKnowWhenCavePokemonWillAppear:
 	.string "Exploring a cave isn't like walking\n"
 	.string "on a road.\p"
@@ -142,4 +174,7 @@ Route115_Text_RouteSignRustboro:
 Route115_Text_MeteorFallsSign:
 	.string "METEOR FALLS\n"
 	.string "FALLARBOR TOWN THROUGH HERE$"
+
+Route115_Text_TrainedFieldMovesTutorial:
+	.string "Testando as coisas ainda.$"
 

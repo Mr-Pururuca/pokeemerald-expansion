@@ -292,7 +292,8 @@ Text_StrengthActivated:
 
 EventScript_UseWaterfall::
 	lockall
-	checkfieldmove FIELD_MOVE_WATERFALL
+@	checkfieldmove FIELD_MOVE_WATERFALL
+	checkpartycanlearnfieldmove FIELD_MOVE_WATERFALL
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
@@ -320,14 +321,15 @@ Text_CantWaterfall:
 
 Text_WantToWaterfall:
 	.string "It's a large waterfall.\n"
-	.string "Would you like to use WATERFALL?$"
+	.string "Would you like to swim upstream?$"
 
 Text_MonUsedWaterfall:
-	.string "{STR_VAR_1} used WATERFALL.$"
+	.string "{STR_VAR_1} up we go.$"
 
 EventScript_UseDive::
 	lockall
-	checkfieldmove FIELD_MOVE_DIVE
+@	checkfieldmove FIELD_MOVE_DIVE
+	checkpartycanlearnfieldmove FIELD_MOVE_DIVE
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantDive
 	copyvar 0x8004 VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -354,14 +356,15 @@ EventScript_EndDive::
 
 EventScript_UseDiveUnderwater::
 	lockall
-	checkfieldmove FIELD_MOVE_DIVE
+@	checkfieldmove FIELD_MOVE_DIVE
+	checkpartycanlearnfieldmove FIELD_MOVE_DIVE
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSurface
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
 	setfieldeffectargument 1, 1
 	msgbox Text_WantToSurface, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_NoSurface
-	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
+	msgbox Text_MonRiseUp, MSGBOX_DEFAULT
 	hidefollowernpc
 	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndSurface
@@ -414,10 +417,10 @@ Text_CantDive:
 
 Text_WantToDive:
 	.string "The sea is deep here.\n"
-	.string "Would you like to use DIVE?$"
+	.string "Would you like to DIVE?$"
 
 Text_MonUsedDive:
-	.string "{STR_VAR_1} used DIVE.$"
+	.string "{STR_VAR_1} DIVE down.$"
 
 Text_CantSurface:
 	.string "Light is filtering down from above.\n"
@@ -425,7 +428,10 @@ Text_CantSurface:
 
 Text_WantToSurface:
 	.string "Light is filtering down from above.\n"
-	.string "Would you like to use DIVE?$"
+	.string "Would you like to surface?$"
+
+Text_MonRiseUp:
+	.string "{STR_VAR_1} float up.$"
 
 EventScript_FailSweetScent::
 	msgbox Text_FailSweetScent, MSGBOX_SIGN
@@ -453,7 +459,8 @@ EventScript_UseDefog::
 
 EventScript_UseRockClimb::
 	lockall
-	checkfieldmove FIELD_MOVE_ROCK_CLIMB
+@	checkfieldmove FIELD_MOVE_ROCK_CLIMB
+	checkpartycanlearnfieldmove FIELD_MOVE_ROCK_CLIMB
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantRockClimb
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
@@ -478,7 +485,8 @@ Text_WantToRockClimb:
     .string "Would you like to use Rock Climb?$"
 
 Text_MonUsedRockClimb:
-    .string "{STR_VAR_1} used Rock Climb!$"
+@   .string "{STR_VAR_1} used Rock Climb!$"
+	.string "{STR_VAR_1} let's Climb!$"
 
 Text_CantRockClimb:
     .string "The cliff is steep.\n"

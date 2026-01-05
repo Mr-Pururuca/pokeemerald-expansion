@@ -3297,10 +3297,16 @@ bool8 ScrCmd_istmrelearneractive(struct ScriptContext *ctx)
 bool8 ScrCmd_checkpartycanlearnfieldmove(struct ScriptContext *ctx)
 {
     enum FieldMove fieldMove = ScriptReadByte(ctx);
-    u16 move = FieldMove_GetMoveId(fieldMove);
+    u16 move;
 
     Script_RequestEffects(SCREFF_V1);
-    
+
+    gSpecialVar_Result = PARTY_SIZE;
+    if (!IsFieldMoveUnlocked(fieldMove))
+        return FALSE;
+
+    move = FieldMove_GetMoveId(fieldMove);
+
     PartyHasMonCanLearnFieldMove(move);
 
     return FALSE;

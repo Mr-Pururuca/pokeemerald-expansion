@@ -73,13 +73,13 @@
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
 
 // Flags FieldMoves
-#define FLAG_CUT_TUTORIAL    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
+#define FLAG_CLEAR_WAY_TUTORIAL     0x3C
+#define FLAG_ITEM_ROUTE_114_TM_ROCK_CLIMB 0x3D
+#define FLAG_HIDE_ROUTE_115_ROXANE  0x3E
+#define FLAG_TRAINED_ROCK_CLIMBING  0x3F
+#define FLAG_TRAINED_SURFING        0x40
+#define FLAG_TRAINED_DIVING         0x41
+#define FLAG_TRAINED_WATERFALL      0x42
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag
 #define FLAG_UNUSED_0x044    0x44 // Unused Flag
 #define FLAG_UNUSED_0x045    0x45 // Unused Flag

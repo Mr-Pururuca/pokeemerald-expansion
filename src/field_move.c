@@ -35,7 +35,7 @@ static bool32 IsFieldMoveUnlocked_Strength(void)
 static bool32 IsFieldMoveUnlocked_Surf(void)
 {
     //return FlagGet(FLAG_BADGE05_GET);
-    return TRUE;
+    return FlagGet(FLAG_TRAINED_SURFING);
 }
 
 static bool32 IsFieldMoveUnlocked_Fly(void)
@@ -47,19 +47,19 @@ static bool32 IsFieldMoveUnlocked_Fly(void)
 static bool32 IsFieldMoveUnlocked_Dive(void)
 {
     //return FlagGet(FLAG_BADGE07_GET);
-    return TRUE;
+    return FlagGet(FLAG_TRAINED_DIVING);
 }
 
 static bool32 IsFieldMoveUnlocked_Waterfall(void)
 {
     //return FlagGet(FLAG_BADGE08_GET);
-    return TRUE;
+    return FlagGet(FLAG_TRAINED_WATERFALL);;
 }
 
 #if OW_ROCK_CLIMB_FIELD_MOVE == TRUE
 static bool32 IsFieldMoveUnlocked_RockClimb(void)
 {
-    return TRUE;
+    return FlagGet(FLAG_TRAINED_ROCK_CLIMBING);
 }
 #endif
 
