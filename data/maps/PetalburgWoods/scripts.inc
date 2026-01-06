@@ -3,7 +3,7 @@ PetalburgWoods_MapScripts::
 	.byte 0
 
 PetalburgWoods_OnTransition:
-	call_if_unset FLAG_CUT_TUTORIAL, PetalburgWoods_EventScript_MoveCutGirl
+	call_if_unset FLAG_CLEAR_WAY_TUTORIAL, PetalburgWoods_EventScript_MoveCutGirl
 	end
 
 PetalburgWoods_EventScript_MoveCutGirl::
@@ -258,7 +258,7 @@ PetalburgWoods_EventScript_Boy2::
 PetalburgWoods_EventScript_Girl::
 	lock
 	faceplayer
-	vgoto_if_unset FLAG_CUT_TUTORIAL, PetalburgWoods_EventScript_ClearTheWayTutorial
+	vgoto_if_unset FLAG_CLEAR_WAY_TUTORIAL, PetalburgWoods_EventScript_ClearTheWayTutorial
 	goto_if_set FLAG_RECEIVED_MIRACLE_SEED, PetalburgWoods_EventScript_ExplainMiracleSeed
 	msgbox PetalburgWoods_Text_TryUsingThisItem, MSGBOX_DEFAULT
 	giveitem ITEM_MIRACLE_SEED
@@ -334,7 +334,7 @@ PetalburgWoods_EventScript_ClearTheWayTutorial::
 	end
 
 PetalburgWoods_EventScript_PetalburgWoods_EventScript_ClearedTheWay::
-	setflag FLAG_CUT_TUTORIAL
+	setflag FLAG_CLEAR_WAY_TUTORIAL
 	msgbox PetalburgWoods_Text_ClearedTheWay, MSGBOX_DEFAULT
 	release
 	end
